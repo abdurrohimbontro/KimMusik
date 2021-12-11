@@ -29,7 +29,7 @@ async def _(bot: Client, cmd: Message):
 
 # Back Button
 BACK_BUTTON = InlineKeyboardMarkup(
-    [[InlineKeyboardButton("🔙 Go Back", callback_data="cbback")]]
+    [[InlineKeyboardButton("🔙 Kembali", callback_data="cbback")]]
 )
 
 # @Client.on_message(filters.text & ~filters.private)
@@ -50,9 +50,8 @@ async def update_admin(client, message):
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
     await message.reply_text(
-        "✅ Bot **reloaded correctly !**\n✅ **Admin list** has been **updated !**"
+        "✅ Bot **dimuat ulang dengan benar !**\n✅ **Daftar Admin** telah **diperbarui !**"
     )
-
 
 # Control Menu Of Player
 @Client.on_message(command(["control", f"control@{BOT_USERNAME}"]) & other_filters)
@@ -60,7 +59,7 @@ async def update_admin(client, message):
 @authorized_users_only
 async def controlset(_, message: Message):
     await message.reply_text(
-        "💡 **here is the control menu of bot :**",
+        "💡 **berikut adalah menu kontrol bot :**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -86,13 +85,12 @@ async def pause(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❌ **no music is currently playing**")
+        await message.reply_text("❌ **Tidak ada musik yang sedang dimainkan**")
     else:
         await callsmusic.pytgcalls.pause_stream(chat_id)
         await message.reply_text(
-            "⏸ **Track paused.**\n\n• **To resume the playback, use the**\n» /resume command."
+            "⏸ **Musik dijeda.**\n\n• **Untuk melanjutkan pemutaran, gunakan perintah**\n» /resume."
         )
-
 
 @Client.on_message(command(["resume", f"resume@{BOT_USERNAME}"]) & other_filters)
 @errors
@@ -102,11 +100,11 @@ async def resume(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❌ **no music is paused**")
+        await message.reply_text("❌ **Tidak ada musik terjeda**")
     else:
         await callsmusic.pytgcalls.resume_stream(chat_id)
         await message.reply_text(
-            "▶️ **Track resumed.**\n\n• **To pause the playback, use the**\n» /pause command."
+            "▶️ **Pemutaran dilanjutkan.**\n\n• **Untuk menjeda pemutaran, gunakan perintah**\n» /jeda."
         )
 
 
@@ -118,14 +116,14 @@ async def stop(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❌ **no music is currently playing**")
+        await message.reply_text("❌ **Tidak ada musik yang sedang dimainkan**")
     else:
         try:
             queues.clear(chat_id)
         except QueueEmpty:
             pass
         await callsmusic.pytgcalls.leave_group_call(chat_id)
-        await message.reply_text("✅ **music playback has ended**")
+        await message.reply_text("😔 **Jadi apakah anda sudah bosan hingga anda tega membunuh saya**")
 
 
 @Client.on_message(command(["skip", f"skip@{BOT_USERNAME}", "next", f"next@{BOT_USERNAME}"]) & other_filters)
@@ -137,7 +135,7 @@ async def skip(_, message: Message):
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
-        await message.reply_text("❌ **no music is currently playing**")
+        await message.reply_text("❌ **Tidak ada musik yang sedang dimainkan**")
     else:
         queues.task_done(chat_id)
         
@@ -158,7 +156,7 @@ async def skip(_, message: Message):
         qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text("⏭ **You've skipped to the next song.**")
+    await message.reply_text("⏭ **Anda telah melompat ke lagu berikutnya.**")
 
 
 @Client.on_message(command(["auth", f"auth@{BOT_USERNAME}"]) & other_filters)
@@ -166,16 +164,16 @@ async def skip(_, message: Message):
 async def authenticate(client, message):
     global admins
     if not message.reply_to_message:
-        return await message.reply("💡 reply to message to authorize user !")
+        return await message.reply("💡 Balas pesan untuk mengotorisasi pengguna !")
     if message.reply_to_message.from_user.id not in admins[message.chat.id]:
         new_admins = admins[message.chat.id]
         new_admins.append(message.reply_to_message.from_user.id)
         admins[message.chat.id] = new_admins
         await message.reply(
-            "🟢 user authorized.\n\nfrom now on, that's user can use the admin commands."
+            "🟢 pengguna diotorisasi.\n\nmulai sekarang, pengguna tersebut dapat menggunakan perintah admin."
         )
     else:
-        await message.reply("✅ user already authorized!")
+        await message.reply("✅ pengguna sudah diotorisasi!")
 
 
 @Client.on_message(command(["unauth", f"deauth@{BOT_USERNAME}"]) & other_filters)
@@ -183,16 +181,16 @@ async def authenticate(client, message):
 async def deautenticate(client, message):
     global admins
     if not message.reply_to_message:
-        return await message.reply("💡 reply to message to deauthorize user !")
+        return await message.reply("💡 balas pesan untuk membatalkan otorisasi pengguna !")
     if message.reply_to_message.from_user.id in admins[message.chat.id]:
         new_admins = admins[message.chat.id]
         new_admins.remove(message.reply_to_message.from_user.id)
         admins[message.chat.id] = new_admins
         await message.reply(
-            "🔴 user deauthorized.\n\nfrom now that's user can't use the admin commands."
+            "🔴 pengguna dicabut izinnya.\n\nmulai sekarang pengguna tidak dapat menggunakan perintah admin."
         )
     else:
-        await message.reply("✅ user already deauthorized!")
+        await message.reply("✅ pengguna sudah dicabut otorisasinya!")
 
 
 # this is a anti cmd feature
@@ -201,22 +199,22 @@ async def deautenticate(client, message):
 async def delcmdc(_, message: Message):
     if len(message.command) != 2:
         return await message.reply_text(
-            "read the /help message to know how to use this command"
+            "baca pesan /help untuk mengetahui cara menggunakan perintah ini"
         )
     status = message.text.split(None, 1)[1].strip()
     status = status.lower()
     chat_id = message.chat.id
     if status == "on":
         if await delcmd_is_on(message.chat.id):
-            return await message.reply_text("✅ already activated")
+            return await message.reply_text("✅ telah diaktifkan")
         await delcmd_on(chat_id)
-        await message.reply_text("🟢 activated successfully")
+        await message.reply_text("🟢 berhasil diaktifkan")
     elif status == "off":
         await delcmd_off(chat_id)
-        await message.reply_text("🔴 disabled successfully")
+        await message.reply_text("🔴 berhasil dinonaktifkan")
     else:
         await message.reply_text(
-            "read the /help message to know how to use this command"
+            "baca pesan /help untuk mengetahui cara menggunakan perintah ini"
         )
 
 
@@ -227,18 +225,18 @@ async def delcmdc(_, message: Message):
 async def cbpause(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 hanya admin yang dapat menekan tombol ini !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
-            "❌ **no music is currently playing**", reply_markup=BACK_BUTTON
+            "❌ **Tidak ada musik yang sedang diputar saat ini**", reply_markup=BACK_BUTTON
         )
     else:
         await callsmusic.pytgcalls.pause_stream(chat_id)
         await query.edit_message_text(
-            "⏸ music playback has been paused", reply_markup=BACK_BUTTON
+            "⏸ pemutaran musik telah dijeda", reply_markup=BACK_BUTTON
         )
 
 
@@ -246,18 +244,18 @@ async def cbpause(_, query: CallbackQuery):
 async def cbresume(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 hanya admin yang dapat menekan tombol ini !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
-            "❌ **no music is paused**", reply_markup=BACK_BUTTON
+            "❌ **tidak ada musik yang dijeda**", reply_markup=BACK_BUTTON
         )
     else:
         await callsmusic.pytgcalls.resume_stream(chat_id)
         await query.edit_message_text(
-            "▶️ music playback has been resumed", reply_markup=BACK_BUTTON
+            "▶️ pemutaran musik telah dilanjutkan", reply_markup=BACK_BUTTON
         )
 
 
@@ -265,13 +263,13 @@ async def cbresume(_, query: CallbackQuery):
 async def cbend(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 hanya admin yang dapat menekan tombol ini !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
-            "❌ **no music is currently playing**", reply_markup=BACK_BUTTON
+            "❌ **Tidak ada musik yang sedang dimainkan**", reply_markup=BACK_BUTTON
         )
     else:
         try:
@@ -281,7 +279,7 @@ async def cbend(_, query: CallbackQuery):
         
         await callsmusic.pytgcalls.leave_group_call(chat_id)
         await query.edit_message_text(
-            "✅ the music queue has been cleared and successfully left voice chat",
+            "✅ antrian musik telah dihapus dan berhasil meninggalkan obrolan suara",
             reply_markup=BACK_BUTTON,
         )
 
@@ -291,13 +289,13 @@ async def cbskip(_, query: CallbackQuery):
     global que
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 only admin can tap this button !", show_alert=True)
+        return await query.answer("💡 hanya admin yang dapat menekan tombol ini !", show_alert=True)
     chat_id = get_chat_id(query.message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await query.edit_message_text(
-            "❌ **no music is currently playing**", reply_markup=BACK_BUTTON
+            "❌ **Tidak ada musik yang sedang dimainkan**", reply_markup=BACK_BUTTON
         )
     else:
         queues.task_done(chat_id)
@@ -320,7 +318,7 @@ async def cbskip(_, query: CallbackQuery):
     if not qeue:
         return
     await query.edit_message_text(
-        "⏭ **You've skipped to the next song**", reply_markup=BACK_BUTTON
+        "⏭ **Anda telah melompat ke lagu berikutnya**", reply_markup=BACK_BUTTON
     )
 
 
@@ -331,6 +329,6 @@ async def change_volume(client, message):
     chat_id = message.chat.id
     try:
        await callsmusic.pytgcalls.change_volume_call(chat_id, volume=int(range))
-       await message.reply(f"✅ **volume set to:** ```{range}%```")
+       await message.reply(f"✅ **volume disetel ke:** ```{range}%```")
     except Exception as e:
        await message.reply(f"**error:** {e}")
