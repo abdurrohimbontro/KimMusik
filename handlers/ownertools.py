@@ -42,7 +42,7 @@ async def botstats(_, message: Message):
     disk_usage = psutil.disk_usage("/").percent
     total_users = await db.total_users_count()
     await message.reply_text(
-        text=f"**📊 stats of @{BOT_USERNAME}** \n\n**🤖 bot version:** `{__version__}` \n\n**🙎🏼 total users:** \n » **on bot pm:** `{total_users}` \n\n**💾 disk usage:** \n » **disk space:** `{total}` \n » **used:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware usage:** \n » **CPU usage:** `{cpu_usage}%` \n » **RAM usage:** `{ram_usage}%`",
+        text=f"**📊 statistik @{BOT_USERNAME}** \n\n**🤖 versi bot:** `{__version__}` \n\n**🙎🏼 total pengguna:** \n » **on bot pm:** `{total_users}` \n\n**💾 disk usage:** \n » **disk space:** `{total}` \n » **used:** `{used}({disk_usage}%)` \n » **free:** `{free}` \n\n**🎛 hardware usage:** \n » **CPU usage:** `{cpu_usage}%` \n » **RAM usage:** `{ram_usage}%`",
         parse_mode="Markdown",
         quote=True,
     )
@@ -63,31 +63,31 @@ async def broadcast_handler_open(_, m: Message):
 async def ban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
-            "» this command for ban user from using your bot, read /help for more info !",
-            quote=True,
+            "»perintah ini untuk melarang pengguna menggunakan bot Anda, baca /help untuk info lebih lanjut!",
+             quote=True,
         )
         return
     try:
         user_id = int(m.command[1])
         ban_duration = m.command[2]
         ban_reason = " ".join(m.command[3:])
-        ban_log_text = f"🚷 **banned user !** \n\nuser id: `{user_id}` \nduration: `{ban_duration}` \nreason: `{ban_reason}`"
+        ban_log_text = f"🚷 **memblokir pengguna !** \n\nuser id: `{user_id}` \ndurasi: `{ban_duration}` \nreason: `{ban_reason}`"
         try:
             await c.send_message(
                 user_id,
-                f"😕 sorry, you're banned!** \n\nreason: `{ban_reason}` \nduration: `{ban_duration}` day(s). \n\n**💬 message from owner: ask in @{GROUP_SUPPORT} if you think this was an mistake.",
+                f"😕 maaf, Anda telah di blokir!** \n\nreason: `{ban_reason}` \ndurasi: `{ban_duration}` hari. \n\n**💬 pesan dari owner: tanyakan di @{GROUP_SUPPORT} jika menurut Anda ini adalah kesalahan.",
             )
-            ban_log_text += "\n\n✅ this notification was sent to that user"
+            ban_log_text += "\n\n✅ pemberitahuan ini dikirim ke pengguna itu"
         except:
             traceback.print_exc()
-            ban_log_text += f"\n\n❌ **failed sent this notification to that user** \n\n`{traceback.format_exc()}`"
+            ban_log_text += f"\n\n❌ **gagal mengirim pemberitahuan ini ke pengguna itu** \n\n`{traceback.format_exc()}`"
         await db.ban_user(user_id, ban_duration, ban_reason)
         print(ban_log_text)
         await m.reply_text(ban_log_text, quote=True)
     except:
         traceback.print_exc()
         await m.reply_text(
-            f"❌ an error occoured, traceback is given below:\n\n`{traceback.format_exc()}`",
+            f"❌ terjadi kesalahan, traceback diberikan di bawah ini:\n\n`{traceback.format_exc()}`",
             quote=True,
         )
 
@@ -98,25 +98,25 @@ async def ban(c: Client, m: Message):
 async def unban(c: Client, m: Message):
     if len(m.command) == 1:
         await m.reply_text(
-            "» this command for unban user, read /help for more info !", quote=True
+            "» perintah ini untuk membatalkan pemblokiran pengguna, baca /bantuan untuk info lebih lanjut !", quote=True
         )
         return
     try:
         user_id = int(m.command[1])
-        unban_log_text = f"🆓 **unbanned user !** \n\n**user id:**{user_id}"
+        unban_log_text = f"🆓 **pengguna yang tidak diblokir !** \n\n**id pengguna:**{user_id}"
         try:
-            await c.send_message(user_id, "🎊 congratulations, you was unbanned!")
-            unban_log_text += "\n\n✅ this notification was sent to that user"
+            await c.send_message(user_id, "🎊 selamat, Anda tidak diblokir!")
+            unban_log_text += "\n\n✅ pemberitahuan ini dikirim ke pengguna itu"
         except:
             traceback.print_exc()
-            unban_log_text += f"\n\n❌ **failed sent this notification to that user** \n\n`{traceback.format_exc()}`"
+            unban_log_text += f"\n\n❌ **gagal mengirim pemberitahuan ini ke pengguna itu** \n\n`{traceback.format_exc()}`"
         await db.remove_ban(user_id)
         print(unban_log_text)
         await m.reply_text(unban_log_text, quote=True)
     except:
         traceback.print_exc()
         await m.reply_text(
-            f"❌ an error occoured, traceback is given below:\n\n`{traceback.format_exc()}`",
+            f"❌ terjadi kesalahan, traceback diberikan di bawah ini:\n\n`{traceback.format_exc()}`",
             quote=True,
         )
 
@@ -134,7 +134,7 @@ async def _banned_usrs(_, m: Message):
         banned_on = banned_user["ban_status"]["banned_on"]
         ban_reason = banned_user["ban_status"]["ban_reason"]
         banned_usr_count += 1
-        text += f"🆔 **user id**: `{user_id}`\n⏱ **duration**: `{ban_duration}`\n🗓 **banned date**: `{banned_on}`\n💬 **reason**: `{ban_reason}`\n\n"
+        text += f"🆔 **id pengguna**: `{user_id}`\n⏱ **durasi**: `{ban_duration}`\n🗓 **tanggal ban**: `{banned_on}`\n💬 **reason**: `{ban_reason}`\n\n"
     reply_text = f"🚷 **total banned:** `{banned_usr_count}`\n\n{text}"
     if len(reply_text) > 4096:
         with open("banned-user-list.txt", "w") as f:
@@ -153,11 +153,11 @@ BRANCH_ = U_BRANCH
 
 @Client.on_message(command("update") & filters.user(OWNER_ID))
 async def updatebot(_, message: Message):
-    msg = await message.reply_text("**updating bot, please wait for a while...**")
+    msg = await message.reply_text("**memperbarui bot, harap tunggu sebentar...**")
     try:
         repo = Repo()
     except GitCommandError:
-        return await msg.edit("**invalid git command !**")
+        return await msg.edit("**perintah git tidak valid !**")
     except InvalidGitRepositoryError:
         repo = Repo.init()
         if "upstream" in repo.remotes:
@@ -170,7 +170,7 @@ async def updatebot(_, message: Message):
         repo.heads.main.checkout(True)
     if repo.active_branch.name != U_BRANCH:
         return await msg.edit(
-            f"**sorry, you are using costum branch named:** `{repo.active_branch.name}`!\n\nchange to `{U_BRANCH}` branch to continue update!"
+            f"**maaf, Anda menggunakan cabang costum bernama:** `{repo.active_branch.name}`!\n\nchange to `{U_BRANCH}` branch to continue update!"
         )
     try:
         repo.create_remote("upstream", REPO_)
@@ -184,15 +184,15 @@ async def updatebot(_, message: Message):
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         await run_cmd("pip3 install --no-cache-dir -r requirements.txt")
-        await msg.edit("**update finished, restarting now...**")
+        await msg.edit("**pembaruan selesai, mulai ulang sekarang...**")
         args = [sys.executable, "main.py"]
         execle(sys.executable, *args, environ)
         sys.exit()
         return
     else:
-        await msg.edit("`heroku detected!`")
+        await msg.edit("`heroku terdeteksi!`")
         await msg.edit(
-            "`updating and restarting is started, please wait for 5-10 minutes!`"
+            "`memperbarui dan memulai ulang dimulai, harap tunggu selama 5-10 menit!`"
         )
         ups_rem.fetch(U_BRANCH)
         repo.git.reset("--hard", "FETCH_HEAD")
