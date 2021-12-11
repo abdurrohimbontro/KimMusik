@@ -21,7 +21,7 @@
 
 ### 🎖 History
 
-[![Mentioned in Awesome Python](https://awesome.re/mentioned-badge.svg)](https://github.com/abdurrohimbontro/Kimmusik)
+[![Mentioned in Awesome Python](https://awesome.re/mentioned-badge.svg)](https://github.com/abdurrohimbontro/Kimmusik-)
 
 ## Fitur 🔮
 
@@ -77,7 +77,7 @@
 - `/blocklist` - menampilkan daftar semua orang yang diblokir karena menggunakan bot Anda
 
 ## Heroku Deployment 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdurrohimbontro/Kimmusik)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdurrohimbontro/Kimmusik-)
 
 ## VPS Deployment 📡
 
