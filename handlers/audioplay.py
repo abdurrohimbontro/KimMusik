@@ -1,4 +1,4 @@
-# Copyright (C) 2021 Veez Music-Project
+# Copyright (C) 2021 Kim Music
 
 from os import path
 import converter
@@ -23,16 +23,16 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 @Client.on_message(command(["stream", f"stream@{BOT_USERNAME}"]) & other_filters)
 async def stream(_, message: Message):
     costumer = message.from_user.mention
-    lel = await message.reply_text("🔁 **processing** sound...")
+    lel = await message.reply_text("🔁 **Memproses** audio...mohon tunggu")
 
     keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                    text="🏢 ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="🛶 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
@@ -43,7 +43,7 @@ async def stream(_, message: Message):
         return await lel.edit("💭 **please reply to a telegram audio file**")
     if round(audio.duration / 60) > DURATION_LIMIT:
         return await lel.edit(
-            f"❌ **music with duration more than** `{DURATION_LIMIT}` **minutes, can't play !**"
+            f"❌ **Durasi musik lebih dari** `{DURATION_LIMIT}` **menit, tidak diizinkan untuk dimainkan !**"
         )
 
     title = audio.title
@@ -62,7 +62,7 @@ async def stream(_, message: Message):
         position = await queues.put(chat_id, file=file_path)
         await message.reply_photo(
             photo=f"{QUE_IMG}",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** {title[:50]}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {costumer}",
+            caption=f"💡 **Musik di tambah ke antrian »** `{position}`\n\n🏷 **Nama:** {title[:50]}\n⏱ **Durasi:** `{duration}`\n🎧 **Request dari:** {costumer}",
             reply_markup=keyboard,
         )
     else:
@@ -76,8 +76,8 @@ async def stream(_, message: Message):
         )
         await message.reply_photo(
             photo=f"{AUD_IMG}",
-            caption=f"🏷 **Name:** {title[:50]}\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n"
-            + f"🎧 **Request by:** {costumer}",
+            caption=f"🏷 **Nama:** {title[:50]}\n⏱ **Durasi:** `{duration}`\n💡 **Status:** `Bermain`\n"
+            + f"🎧 **Request dari:** {costumer}",
             reply_markup=keyboard,
         )
 
