@@ -1,20 +1,10 @@
 <p align="center">
-    <br><b>🗄️ PROJECT ARCHIVED, NO LONGER MAINTAINED !!</b><br>
+    <br><b>🗄️ KIM MUSIK PROJECTS, TERBARU!!</b><br>
 </p>
 
-<p align="center"><a href="https://t.me/VeezMusicBot"><img src="https://github.com/levina-lab/VeezMusic/raw/main/etc/veezlogo.png"></a></p>
+<p align="center"><a href="https://telegra.ph/file/924d51008c035d7c6c55e.png"><img src="https://telegra.ph/file/924d51008c035d7c6c55e.png"></a></p>
 <p align="center">
-    <br><b>Veez Music is a telegram bot project that's allow you to play music on telegram voice chat group</b><br>
-</p>
-<p align="center">
-    <a href="https://www.python.org/" alt="made-with-python"> <img src="https://img.shields.io/badge/Made%20with-Python-black.svg?style=flat-square&logo=python&logoColor=blue&color=red" /></a>
-    <a href="https://github.com/levina-lab/VeezMusic/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-no-red.svg?style=flat-square" /></a>
-    <a href="https://app.codacy.com/gh/levina-lab/VeezMusic/dashboard"> <img src="https://img.shields.io/codacy/grade/a723cb464d5a4d25be3152b5d71de82d?color=red&logo=codacy&style=flat-square" alt="Codacy" /></a><br>
-    <a href="https://github.com/levina-lab/VeezMusic"> <img src="https://img.shields.io/github/repo-size/levina-lab/VeezMusic?color=red&logo=github&logoColor=blue&style=flat-square" /></a>
-    <a href="https://github.com/levina-lab/VeezMusic/commits/main"> <img src="https://img.shields.io/github/last-commit/levina-lab/VeezMusic?color=red&logo=github&logoColor=blue&style=flat-square" /></a>
-    <a href="https://github.com/levina-lab/VeezMusic/issues"> <img src="https://img.shields.io/github/issues/levina-lab/VeezMusic?color=red&logo=github&logoColor=blue&style=flat-square" /></a>
-    <a href="https://github.com/levina-lab/VeezMusic/network/members"> <img src="https://img.shields.io/github/forks/levina-lab/VeezMusic?color=red&logo=github&logoColor=blue&style=flat-square" /></a>  
-    <a href="https://github.com/levina-lab/VeezMusic/network/members"> <img src="https://img.shields.io/github/stars/levina-lab/VeezMusic?color=red&logo=github&logoColor=blue&style=flat-square" /></a>  
+    <br><b>bot yang di gunakan untuk memutar musik di vcg anda</b><br>
 </p>
 
 <h3>Requirements 📝</h3>
@@ -27,72 +17,67 @@
 
 ### 🧪 Get `SESSION_NAME` from below:
 
-[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@levinalab/StringSession#main.py) ``Pyrogram``
+[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](http/StringSession#main.py) ``Pyrogram``
 
 ### 🎖 History
 
-[![Mentioned in Awesome Python](https://awesome.re/mentioned-badge.svg)](https://github.com/levina-lab/VeezMusic)
+[![Mentioned in Awesome Python](https://awesome.re/mentioned-badge.svg)](https://github.com/abdurrohimbontro/Kimmusik)
 
-## Features 🔮
+## Fitur 🔮
 
-- Thumbnail Support
-- Playlist Support
-- Youtube, Local playback support
-- Settings panel
-- Control with buttons
-- Userbot auto join
-- Keyboard selection support for youtube play
-- Lyrics Scrapper
-- Unlimited Queue
-- Broadcast Bot
-- Statistic Collector
-- Block / Unblock (restrict user for using your bot)
+- Dukungan Gambar Kecil
+- Dukungan Daftar Putar
+- Youtube, dukungan pemutaran lokal
+- Panel pengaturan
+- Kontrol dengan tombol
+- Userbot otomatis bergabung
+- Dukungan pemilihan keyboard untuk pemutaran youtube
+- Penggores Lirik
+- Antrian Tanpa Batas
+- Bot Siaran
+- Kolektor Statistik
+- Blokir / Buka Blokir (batasi pengguna untuk menggunakan bot Anda)
 
-## Commands 🛠
+## perintah 🛠
 
-- `/play <song name>` - play song you requested
-- `/playlist` - Show now playing list
-- `/song <song name>` - download songs you want quickly
-- `/search <query>` - search videos on youtube with details
-- `/vsong <song name>` - download videos you want quickly
-- `/lyric <song name>` - lyrics scrapper
+- `/play <nama lagu>` - putar lagu yang Anda minta
+- `/playlist` - Tampilkan daftar yang sedang diputar
+- `/song <nama lagu>` - unduh lagu yang Anda inginkan dengan cepat
+- `/search <query>` - cari video di youtube dengan detail
+- `/vsong <nama lagu>` - unduh video yang Anda inginkan dengan cepat
+- `/lyric <song name>` - lirik scrapper
 
 #### Admins Only 👷‍♂️
-- `/player` - open music player settings panel
-- `/pause` - pause song play
-- `/resume` - resume song play
-- `/skip` - play next song
-- `/end` - stop music play
-- `/music on` - to disable music player in your group
-- `/music off` - to enable music player in your group
-- `/join` - invite assistant to your chat
-- `/leave` - remove assistant from your chat
-- `/reload` - Refresh admin list
-- `/uptime` - check the bot uptime status
-- `/ping` - check the bot ping status
-- `/auth` - authorized people to access the admin commands
-- `/unauth` - deauthorized people to access the admin commands
-- `/control` - open the music player control panel
+- `/player` - buka panel pengaturan pemutar musik
+- `/ pause` - jeda pemutaran lagu
+- `/resume` - melanjutkan pemutaran lagu
+- `/skip` - putar lagu berikutnya
+- `/end` - hentikan pemutaran musik
+- `/music on` - untuk menonaktifkan pemutar musik di grup Anda
+- `/music off` - untuk mengaktifkan pemutar musik di grup Anda
+- `/join` - undang asisten ke obrolan Anda
+- `/leave` - hapus asisten dari obrolan Anda
+- `/reload` - Segarkan daftar admin
+- `/ uptime` - periksa status uptime bot
+- `/ ping` - periksa status ping bot
+- `/auth` - orang yang berwenang untuk mengakses perintah admin
+- `/ unauth` - membatalkan otorisasi orang untuk mengakses perintah admin
+- `/ control` - buka panel kontrol pemutar musik
 
 ### Sudo User 🧙‍♂️
-- `/stats` - see the bot statistic
-- `/leaveall` - order the assistant to leave all groups
-- `/eval (query)` - execute any code
-- `/sh (query)` - run any code
+- `/stats` - lihat statistik bot
+- `/leaveall` - perintahkan asisten untuk keluar dari semua grup
+- `/eval (query)` - jalankan kode apa pun
+- `/sh (query)` - jalankan kode apa pun
 
 ### Owner Only 👨🏻‍✈️
-- `/broadcast` - send a broadcast message from the bot
-- `/block` - block people for using your bot
-- `/unblock` - unblock people you blocked for using your bot
-- `/blocklist` - show the list of all people who's blocked for using your bot
+- `/broadcast` - mengirim pesan siaran dari bot
+- `/block` - memblokir orang yang menggunakan bot Anda
+- `/unblock` - membuka blokir orang yang Anda blokir karena menggunakan bot Anda
+- `/blocklist` - menampilkan daftar semua orang yang diblokir karena menggunakan bot Anda
 
-## 🔎 Inline Search Support
-- just type the bot username in any chat, example: "`@VeezMusicBot Faded Alan Walker`", then bot will give you a results of the query you search in inline mode.
-
-## Heroku Deployment <img src="./etc/Kenpurple.gif" width="40px">
-The easy way to host this bot, deploy to Heroku, Change the app country to Europe (it will help to make the bot stable).
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/levina-lab/veezmusic)
+## Heroku Deployment 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/abdurrohimbontro/Kimmusik)
 
 ## VPS Deployment 📡
 
@@ -102,8 +87,8 @@ sudo apt install python3-pip ffmpeg -y
 sudo curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
 sudo apt-get install -y nodejs
 sudo npm i -g npm
-git clone https://github.com/levina-lab/VeezMusic # clone the repo.
-cd VeezMusic
+git clone https://github.com/abdurrohimbontro/Kimmusik # clone the repo.
+cd Kimmusik
 sudo pip3 install --upgrade pip
 sudo pip3 install -U -r requirements.txt
 cp example.env .env # use vim to edit ENVs
@@ -111,19 +96,4 @@ vim .env # fill up the ENVs (Steps: press i to enter in insert mode then edit th
 sudo python3 main.py # run the bot.
 ```
 
-### Special Credits 💖
-- [Levina](https://github.com/levina-lab): Dev
-- [Tofik](https://github.com/tofikdn): Dev
-- [Zxce3](https://github.com/Zxce3): Dev
-- [Hunter-XDD](https://github.com/HUnter-XDD): Dev
-- [Hyoka-XD](https://github.com/PratheekXD): Contributor
-- [Rajkumar](https://github.com/Awesome-RJ): Contributor
-- [Laky](https://github.com/Laky-64): PyTgCalls
-- [Dan](https://github.com/delivrance): Pyrogram
-- [Original Repo](https://github.com/callsmusic/callsmusic) CallsMusic
-- [Veez Music Bot](https://t.me/veezmusicbot) Our Music Bot
-- [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
-- [TeamDaisyX](https://github.com/TeamDaisyX) for base code
-
-### Support & Updates 🎑
-<a href="https://t.me/VeezSupportGroup"><img src="https://img.shields.io/badge/Join-Group%20Support-blue.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/levinachannel"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
+### 💝
